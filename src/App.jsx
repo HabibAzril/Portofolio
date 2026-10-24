@@ -1,14 +1,13 @@
 import React, { useState, useCallback } from 'react';
-import CustomCursor from './components/CustomCursor';
+import TargetCursor from './components/TargetCursor';
 import LoadingScreen from './components/LoadingScreen';
 import ScrollProgress from './components/ScrollProgress';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import MarqueeName from './components/MarqueeName';
 import About from './components/About';
-import Projects from './components/Projects';
 import Skills from './components/Skills';
-import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -21,8 +20,23 @@ function App() {
 
   return (
     <>
-      {/* Morphing Ring & Dot Custom Cursor */}
-      <CustomCursor />
+      {/* Target Reticle Cursor from React Bits */}
+      <TargetCursor
+        spinDuration={2}
+        hideDefaultCursor={true}
+        parallaxOn={true}
+        hoverDuration={0.2}
+        size={36}
+        cornerSize={12}
+        thickness={3}
+        padding={6}
+        matchRadius={true}
+        dotSize={4}
+        blendMode="difference"
+        showLabel={true}
+        clickEffect={true}
+        targetSelector=".cursor-target, a, button, .btn-primary, .btn-secondary, [role='button']"
+      />
 
       {/* Loading Screen Overlay */}
       <LoadingScreen onComplete={handleLoadingComplete} />
@@ -37,9 +51,8 @@ function App() {
           <Hero isReady={loadingComplete} />
           <MarqueeName />
           <About />
-          <Projects />
           <Skills />
-          <Experience />
+          <Projects />
           <Contact />
         </main>
         <Footer />

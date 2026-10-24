@@ -44,10 +44,10 @@ export default function Contact() {
         {/* Section Header */}
         <div className="section-header">
           <span className="section-tag">Get in Touch</span>
-          <h2>Let's Work Together</h2>
+          <h2>Mari Berkarya Bersama</h2>
           <p>
-            Have a project idea, collaboration opportunity, or just want to
-            discuss web development? Feel free to reach out.
+            Punya ide proyek, peluang kolaborasi, atau sekadar ingin berdiskusi
+            tentang pengembangan web dan QA? Mari berkarya bersama.
           </p>
         </div>
 
@@ -86,8 +86,7 @@ export default function Contact() {
                 lineHeight: 1.7,
               }}
             >
-              I'm always open to discussing website projects, interactive
-              interfaces, and career opportunities.
+              Saya selalu terbuka untuk mendiskusikan proyek website, antarmuka interaktif, dan peluang karir.
             </p>
 
             {/* Email */}
@@ -117,6 +116,8 @@ export default function Contact() {
               </div>
               <button
                 onClick={handleCopyEmail}
+                className="cursor-target"
+                data-cursor-label="Copy"
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -188,6 +189,8 @@ export default function Contact() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={soc.label}
+                      className="cursor-target"
+                      data-cursor-label={soc.label}
                       style={{
                         width: '38px',
                         height: '38px',
@@ -280,7 +283,7 @@ export default function Contact() {
                       color: 'var(--text-secondary)',
                     }}
                   >
-                    Thank you for reaching out. I'll get back to you soon.
+                    Terimakasih telah menghubungi saya. Saya akan menghubungi Anda segera.
                   </p>
                 </motion.div>
               ) : (
@@ -389,7 +392,8 @@ export default function Contact() {
 
                   <button
                     type="submit"
-                    className="btn-primary"
+                    className="btn-primary cursor-target"
+                    data-cursor-label="Send"
                     style={{ width: '100%', marginTop: '4px' }}
                   >
                     <span>Send Message</span>

@@ -35,7 +35,7 @@ export default function Footer() {
               letterSpacing: '-0.02em',
             }}
           >
-            Azril Ahmad
+            Azril Ahmad .R
           </div>
           <p
             style={{
@@ -43,14 +43,15 @@ export default function Footer() {
               color: 'var(--text-muted)',
             }}
           >
-            © {new Date().getFullYear()} {personalInfo.fullName}. Built with
-            React & Framer Motion.
+            © {new Date().getFullYear()} Azril Ahmad .R
           </p>
         </div>
 
         {/* Back to top */}
         <button
           onClick={scrollToTop}
+          className="cursor-target"
+          data-cursor-label="Top"
           style={{
             display: 'inline-flex',
             alignItems: 'center',

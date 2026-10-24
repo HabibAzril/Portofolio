@@ -377,21 +377,6 @@ button {
   position: absolute;
 }
 
-/* ========================================================
-   Custom Cursor — Desktop Pointer Hiding
-   ======================================================== */
-
-@media (pointer: fine) {
-  body.custom-cursor-enabled,
-  body.custom-cursor-enabled a,
-  body.custom-cursor-enabled button,
-  body.custom-cursor-enabled [role="button"],
-  body.custom-cursor-enabled input,
-  body.custom-cursor-enabled textarea,
-  body.custom-cursor-enabled select {
-    cursor: none !important;
-  }
-}
 
 /* ========================================================
    Reduced Motion

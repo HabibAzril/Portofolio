@@ -185,11 +185,11 @@ export default function Hero({ isReady }) {
               paddingTop: '8px',
             }}
           >
-            <a href="#projects" className="btn-primary">
-              View Projects
+            <a href="#projects" className="btn-primary cursor-target" data-cursor-label="Projects">
+              Lihat Proyek
             </a>
-            <a href="#contact" className="btn-secondary">
-              Get In Touch
+            <a href="#contact" className="btn-secondary cursor-target" data-cursor-label="Contact">
+              Hubungi Saya
             </a>
           </motion.div>
         </motion.div>

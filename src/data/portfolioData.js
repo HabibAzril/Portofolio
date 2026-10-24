@@ -1,15 +1,15 @@
 export const personalInfo = {
   name: "Azril",
   fullName: "Azril Ahmad",
-  tagline: "Frontend Developer & Creative Coder",
-  bio: "Spesialis dalam merancang antarmuka web yang interaktif, modern, dan didukung animasi mikro yang mulus (*smooth micro-animations*). Berfokus pada perpaduan estetika visual dan performa tingkat tinggi.",
+  tagline: "Frontend Developer & QA",
+  bio: "Spesialis dalam merancang antarmuka web yang interaktif, modern, dan didukung animasi mikro yang mulus. Berfokus pada perpaduan estetika visual dan performa tingkat tinggi.",
   location: "Indonesia",
   status: "Tersedia untuk Proyek Baru & Kolaborasi",
   socials: {
-    github: "https://github.com",
+    github: "https://github.com/HabibAzril",
     linkedin: "https://linkedin.com",
-    instagram: "https://instagram.com",
-    email: "azril.dev@example.com"
+    instagram: "https://www.instagram.com/zzzri__l/",
+    email: "azrilrayyanp@gmail.com" 
   },
   stats: [
     { label: "Tahun Pengalaman", value: "2+" },
@@ -19,100 +19,143 @@ export const personalInfo = {
   ]
 };
 
+export const programmingLanguagesData = [
+  {
+    name: "PHP",
+    subtitle: "Server-side scripting language",
+    badge: "Backend",
+    level: "Advanced",
+    color: "#777BB4",
+    href: "https://www.php.net"
+  },
+  {
+    name: "HTML",
+    subtitle: "Semantic structure & web markup",
+    badge: "Markup",
+    level: "Expert",
+    color: "#E34F26",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML"
+  },
+  {
+    name: "CSS",
+    subtitle: "Responsive styling & visual layouts",
+    badge: "Styling",
+    level: "Expert",
+    color: "#1572B6",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS"
+  },
+  {
+    name: "Java",
+    subtitle: "Object-oriented backend logic",
+    badge: "OOP & Logic",
+    level: "Intermediate",
+    color: "#EA2D2E",
+    href: "https://www.java.com"
+  },
+  {
+    name: "JavaScript",
+    subtitle: "Dynamic scripting & web interactivity",
+    badge: "Frontend & Core",
+    level: "Advanced",
+    color: "#F7DF1E",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+  }
+];
+
+export const frameworksData = [
+  {
+    name: "Laravel",
+    subtitle: "PHP web application framework",
+    badge: "Full-Stack",
+    level: "Advanced",
+    color: "#FF2D20",
+    href: "https://laravel.com"
+  },
+  {
+    name: "Tailwind CSS",
+    subtitle: "Utility-first CSS framework",
+    badge: "CSS Framework",
+    level: "Expert",
+    color: "#38BDF8",
+    href: "https://tailwindcss.com"
+  },
+  {
+    name: "Bootstrap",
+    subtitle: "Responsive UI component system",
+    badge: "UI Toolkit",
+    level: "Advanced",
+    color: "#7952B3",
+    href: "https://getbootstrap.com"
+  },
+  {
+    name: "ReactJS",
+    subtitle: "Component-driven frontend library",
+    badge: "UI Library",
+    level: "Advanced",
+    color: "#61DAFB",
+    href: "https://react.dev"
+  }
+];
+
 export const skillsData = [
   {
-    category: "Frontend Core",
-    skills: [
-      { name: "React.js", level: "Advanced", icon: "Code2" },
-      { name: "JavaScript (ES6+)", level: "Advanced", icon: "FileCode" },
-      { name: "HTML5 & Semantic CSS", level: "Expert", icon: "Layout" },
-      { name: "TypeScript", level: "Intermediate", icon: "FileCode2" }
-    ]
+    category: "Programming Languages",
+    skills: programmingLanguagesData
   },
   {
-    category: "Motion & Styling",
-    skills: [
-      { name: "Framer Motion", level: "Advanced", icon: "Sparkles" },
-      { name: "CSS Animations & Keyframes", level: "Expert", icon: "PlayCircle" },
-      { name: "Responsive & Mobile Design", level: "Expert", icon: "Smartphone" },
-      { name: "Glassmorphism & Micro-UI", level: "Advanced", icon: "Palette" }
-    ]
-  },
-  {
-    category: "Tools & Ecosystem",
-    skills: [
-      { name: "Vite & Modern Bundler", level: "Advanced", icon: "Zap" },
-      { name: "Git & GitHub", level: "Advanced", icon: "GitBranch" },
-      { name: "REST APIs & Fetch", level: "Advanced", icon: "Globe" },
-      { name: "Figma to Code", level: "Advanced", icon: "Layers" }
-    ]
+    category: "Frameworks",
+    skills: frameworksData
   }
 ];
 
 export const projectsData = [
   {
     id: 1,
-    title: "NeoCommerce Dashboard",
-    description: "Platform e-commerce dashboard interaktif dengan analitik real-time, grafik performa, dan transisi halaman super fluid.",
-    category: "Web App",
-    tags: ["React", "Framer Motion", "Chart.js", "Vanilla CSS"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Flappy Bird",
+    subtitle: "Arcade Game • JavaScript 2D",
+    description: "Game arkade interaktif yang terinspirasi dari permainan Flappy Bird klasik. Pemain mengontrol burung untuk mengepakkan sayap dan melewati rintangan pipa bertingkat dengan ketepatan koordinasi dan timing untuk meraih skor tertinggi.",
+    category: "Game",
+    tags: ["JavaScript", "HTML5 Canvas", "CSS3", "Game Loop"],
+    image: "/project/projectImage/FlappyBird.png",
+    demoUrl: null,
+    githubUrl: "https://github.com/HabibAzril/FlappyBird",
     featured: true
   },
   {
     id: 2,
-    title: "Lumina Streaming Interface",
-    description: "Aplikasi penjelajah film & media dengan preview trailer dinamis, efek parallax saat scroll, dan kartu interaktif dengan gestur halus.",
-    category: "Frontend UI",
-    tags: ["React", "TMDB API", "Framer Motion", "CSS Grid"],
-    image: "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?q=80&w=800&auto=format&fit=crop",
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "ZenithTech",
+    subtitle: "E-Commerce • Tech & Electronics Store",
+    description: "Website e-commerce terstruktur yang menyajikan katalog produk laptop dan aksesoris elektronik. Dilengkapi navigasi kategori produk, kolom pencarian cepat, serta manajemen keranjang belanja interaktif.",
+    category: "E-Commerce",
+    tags: ["JavaScript", "HTML5", "CSS3", "Responsive UI"],
+    image: "/project/projectImage/ZenithTech.png",
+    demoUrl: null,
+    githubUrl: "https://github.com/HabibAzril/TechStore",
     featured: true
   },
   {
     id: 3,
-    title: "Aura Creative Studio",
-    description: "Website agensi kreatif berbasis 3D mikro-interaksi, tipografi dinamis, serta transisi hero section yang sinematik.",
-    category: "Landing Page",
-    tags: ["React", "Animation Physics", "Modern UI", "Vite"],
-    image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=800&auto=format&fit=crop",
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "PHP CRUD",
+    subtitle: "Data Management • Web Application",
+    description: "Aplikasi pengelolaan data berbasis web dengan PHP native dan database MySQL. Menerapkan operasi CRUD (Create, Read, Update, Delete) secara terstruktur, dilengkapi sistem autentikasi login serta antarmuka tabel interaktif.",
+    category: "Full-Stack",
+    tags: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript"],
+    image: "/project/projectImage/phpCrud.jpg",
+    demoUrl: null,
+    githubUrl: "https://github.com/HabibAzril/PhpCRUD",
     featured: true
   },
   {
     id: 4,
-    title: "TaskPulse Productivity Suite",
-    description: "Sistem manajemen tugas drag-and-drop dengan animasi tata letak (layout animations) otomatis menggunakan spring physics.",
+    title: "PlayAll",
+    subtitle: "Gaming Community • Teman Mabar Finder",
+    description: "Website komunitas gamer untuk menemukan teman bermain bersama (mabar) dalam game populer seperti Mobile Legends, PUBG, VALORANT, dan FC Mobile. Menghadirkan fitur pencarian pemain, sistem autentikasi, serta navigasi game favorit.",
     category: "Web App",
-    tags: ["React", "Framer Motion", "Local Storage"],
-    image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop",
-    demoUrl: "#",
-    githubUrl: "#",
-    featured: false
+    tags: ["JavaScript", "HTML5", "CSS3", "UI/UX"],
+    image: "/project/projectImage/PlayAll.png",
+    demoUrl: null,
+    githubUrl: "https://github.com/HabibAzril",
+    featured: true
   }
 ];
 
-export const experienceData = [
-  {
-    period: "2024 - Sekarang",
-    role: "Frontend Developer",
-    company: "Freelance & Creative Projects",
-    description: "Mengembangkan berbagai antarmuka web modern untuk klien dengan fokus kuat pada animasi interaktif, responsive design, dan performa web optimal."
-  },
-  {
-    period: "2023 - 2024",
-    role: "Junior Web Developer",
-    company: "Tech Studio Project",
-    description: "Membangun komponen UI modular di React, mengintegrasikan REST API, dan mengoptimalkan kecepatan rendering pada single-page application."
-  },
-  {
-    period: "2022 - 2023",
-    role: "UI/UX & Web Explorer",
-    company: "Personal Learning Journey",
-    description: "Mempelajari dasar-dasar arsitektur web modern, JavaScript modern, CSS layout systems, dan prinsip interaksi pengguna (*user experience*)."
-  }
-];

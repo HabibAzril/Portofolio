@@ -29,8 +29,9 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Database, Coffee, Server, GitBranch, Sparkles, Terminal, ArrowRight } from 'lucide-react';
+import { Database, Coffee, Server, GitBranch, Terminal, ArrowRight } from 'lucide-react';
 import TechText from './TechText';
+import ProfileCard from './ProfileCard';
 
 // ==========================================
 // ✏️ CUSTOMIZABLE DATA (Edit your info here)
@@ -40,9 +41,10 @@ const aboutContent = {
   headline: 'Turning ideas into',
   headlineAccent: 'digital reality.',
   paragraphs: [
-    `Hi there! I'm Azril Ahmad.R, a Software Engineering student at SMK with a deep passion for web development. I love the process of transforming concepts into clean, functional, and beautiful web applications.`,
-    `I have experience building simple to intermediate web applications using HTML, CSS, JavaScript, and Node.js. I'm constantly exploring new technologies and sharpening my skills to become a well-rounded developer.`,
-    `When I'm not coding, you'll find me exploring open-source projects, learning new frameworks, or experimenting with UI/UX design patterns to make interfaces more intuitive and delightful.`,
+    `Halo, saya Azril Ahmad.R, seorang siswa kelas XI jurusan Rekayasa Perangkat Lunak (RPL) di SMK PGRI 3 Malang. Saya memiliki ketertarikan besar terhadap dunia teknologi, khususnya Web Development dan Software Quality Assurance (QA).`,
+    `Saya memiliki pengalaman dalam mengembangkan website sederhana menggunakan berbagai teknologi web serta melakukan pengujian dasar terhadap fitur-fitur pada website yang saya buat. Melalui pengalaman tersebut, saya mulai tertarik untuk mempelajari bagaimana sebuah aplikasi dapat dikembangkan dengan baik, diuji secara sistematis, dan memiliki kualitas yang optimal.`,
+    `Saya ingin terus mengembangkan kemampuan di bidang Web Development sekaligus memperdalam pengetahuan tentang Software Quality Assurance, terutama dalam pengujian perangkat lunak, identifikasi bug, dan peningkatan kualitas aplikasi.`,
+    `Saya juga senang mempelajari hal-hal baru, terbuka terhadap masukan, dan mampu bekerja sama dengan orang lain untuk mencapai tujuan bersama. Bagi saya, setiap proyek merupakan kesempatan untuk belajar, berkembang, dan menghasilkan karya yang lebih baik.`,
   ],
   skills: [
     {
@@ -74,13 +76,13 @@ const aboutContent = {
     src: '/project/MyFace2.jpg',
     alt: 'Portrait of Azril Ahmad.R',
     captionName: 'Azril Ahmad.R',
-    captionRole: 'Software Engineering Student • Web Developer',
+    captionRole: 'Software Quality Assurance Student • Web Developer',
     badge: 'SMK',
   },
   badges: [
     { label: 'Status', value: 'Available for projects' },
-    { label: 'Education', value: 'Software Engineering (SMK)' },
-    { label: 'Focus', value: 'Web Apps & UI Architecture' },
+    { label: 'Education', value: 'Software Quality Assurance (SMK)' },
+    { label: 'Focus', value: 'Web Apps & Testing' },
   ],
 };
 
@@ -164,30 +166,6 @@ export default function About() {
             speed={0.9}
           />
 
-          {/* Interactive Hint Label */}
-          <div
-            style={{
-              position: 'absolute',
-              bottom: '12px',
-              right: '16px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              fontSize: '0.7rem',
-              color: 'var(--text-muted)',
-              fontFamily: 'var(--font-mono)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.08em',
-              pointerEvents: 'none',
-              background: 'rgba(10, 10, 10, 0.75)',
-              padding: '4px 10px',
-              borderRadius: '20px',
-              border: '1px solid var(--border-subtle)',
-            }}
-          >
-            <Sparkles size={12} color="var(--text-muted)" />
-            <span>Interactive • Hover & Drag letters</span>
-          </div>
         </div>
 
         {/* ========================================================
@@ -276,7 +254,8 @@ export default function About() {
             <motion.div variants={itemVariants} style={{ paddingTop: '8px' }}>
               <a
                 href="#projects"
-                className="btn-primary"
+                className="btn-primary cursor-target"
+                data-cursor-label="Projects"
                 style={{ alignSelf: 'flex-start' }}
               >
                 <span>Explore Featured Projects</span>
@@ -285,226 +264,41 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Right Column: Profile Photo & Skill Focus */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            {/* Photo Card — Aligned with "Turning ideas into digital reality" */}
-            <motion.div
-              variants={itemVariants}
-              className="about-image-card"
-              data-cursor="true"
-            >
-              <img
-                src={aboutContent.photo.src}
-                alt={aboutContent.photo.alt}
-                className="about-photo-img"
-                loading="lazy"
-              />
-              <div className="about-image-overlay" aria-hidden="true" />
-
-              {/* Bottom Caption Overlay */}
-              <div
-                style={{
-                  position: 'absolute',
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  padding: '16px 20px',
-                  display: 'flex',
-                  alignItems: 'flex-end',
-                  justifyContent: 'space-between',
-                  gap: '12px',
-                  zIndex: 2,
-                  pointerEvents: 'none',
-                }}
-              >
-                <div>
-                  <p
-                    style={{
-                      fontSize: '0.95rem',
-                      fontWeight: 600,
-                      color: '#ffffff',
-                      letterSpacing: '-0.01em',
-                      margin: 0,
-                      lineHeight: 1.2,
-                    }}
-                  >
-                    {aboutContent.photo.captionName}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: '0.78rem',
-                      color: 'var(--text-secondary)',
-                      margin: '4px 0 0 0',
-                    }}
-                  >
-                    {aboutContent.photo.captionRole}
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '6px',
-                    padding: '4px 10px',
-                    borderRadius: '100px',
-                    background: 'rgba(10, 10, 10, 0.75)',
-                    backdropFilter: 'blur(8px)',
-                    border: '1px solid var(--border-subtle)',
-                    fontSize: '0.72rem',
-                    color: 'var(--text-primary)',
-                    fontFamily: 'var(--font-mono)',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  <div
-                    style={{
-                      width: '6px',
-                      height: '6px',
-                      borderRadius: '50%',
-                      backgroundColor: '#22c55e',
-                      boxShadow: '0 0 8px #22c55e',
-                    }}
-                  />
-                  <span>{aboutContent.photo.badge}</span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Core Foundations & Tooling Label */}
-            <motion.div variants={itemVariants} style={{ marginTop: '8px' }}>
-              <span
-                style={{
-                  fontSize: '0.78rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--text-muted)',
-                }}
-              >
-                Core Foundations & Tooling
-              </span>
-            </motion.div>
-
-            {/* Skill Cards Grid */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-                gap: '16px',
+          {/* Right Column: ProfileCard */}
+          <motion.div
+            variants={itemVariants}
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              width: '100%',
+              paddingTop: '8px',
+            }}
+          >
+            <ProfileCard
+              name="Azril Ahmad Rayyan"
+              title="Web Developer"
+              handle="PlayAll"
+              status="Online"
+              contactText="Contact"
+              avatarUrl="/public/project/AssetAzril.png"
+              iconUrl="/assets/demo/iconpattern.png"
+              holo={0.8}
+              glare={0.5}
+              tiltStrength={12}
+              parallax={8}
+              radius={16}
+              enableTilt={true}
+              intro={true}
+              showUserInfo={true}
+              enableMobileTilt={false}
+              theme="dark"
+              onContactClick={() => {
+                const el = document.getElementById('contact');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-            >
-              {aboutContent.skills.map((skill, index) => {
-                const IconComponent = skill.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    variants={itemVariants}
-                    className="card"
-                    style={{
-                      padding: '24px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '14px',
-                      position: 'relative',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: '40px',
-                          height: '40px',
-                          borderRadius: '8px',
-                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                          border: '1px solid var(--border-subtle)',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          color: 'var(--text-primary)',
-                        }}
-                      >
-                        <IconComponent size={20} />
-                      </div>
-                      <span
-                        style={{
-                          fontSize: '0.7rem',
-                          fontFamily: 'var(--font-mono)',
-                          textTransform: 'uppercase',
-                          letterSpacing: '0.08em',
-                          color: 'var(--text-muted)',
-                        }}
-                      >
-                        {skill.badge}
-                      </span>
-                    </div>
-
-                    <div>
-                      <h4
-                        style={{
-                          fontSize: '1.15rem',
-                          fontWeight: 600,
-                          color: 'var(--text-primary)',
-                          marginBottom: '4px',
-                          letterSpacing: '-0.02em',
-                        }}
-                      >
-                        {skill.name}
-                      </h4>
-                      <p
-                        style={{
-                          fontSize: '0.88rem',
-                          color: 'var(--text-secondary)',
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        {skill.subtitle}
-                      </p>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            {/* Additional Info Box */}
-            <motion.div
-              variants={itemVariants}
-              className="card"
-              style={{
-                padding: '18px 22px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '14px',
-                background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
-              }}
-            >
-              <div
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  backgroundColor: '#22c55e',
-                  boxShadow: '0 0 10px #22c55e',
-                  flexShrink: 0,
-                }}
-              />
-              <p
-                style={{
-                  fontSize: '0.86rem',
-                  color: 'var(--text-secondary)',
-                  lineHeight: 1.6,
-                }}
-              >
-                Always excited to learn modern toolchains, explore scalable architectures, and collaborate on ambitious digital ideas.
-              </p>
-            </motion.div>
-          </div>
+            />
+          </motion.div>
         </motion.div>
       </div>
     </section>

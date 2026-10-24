@@ -1,0 +1,48 @@
+/* ========================================================
+   TARGET CURSOR (React Bits) COMPONENT STYLES
+   Ensures complete styling in Vanilla CSS & Tailwind environments
+   ======================================================== */
+
+.target-cursor-wrapper {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+}
+
+.target-cursor-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  transform-origin: top left;
+  border-style: solid;
+  border-color: var(--target-cursor-color, #ffffff);
+  will-change: transform;
+}
+
+.target-cursor-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 9999px;
+  background: var(--target-cursor-color, #ffffff);
+  will-change: transform;
+}
+
+.target-cursor-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 11px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  color: var(--target-cursor-color, #ffffff);
+  will-change: transform, opacity;
+  pointer-events: none;
+}

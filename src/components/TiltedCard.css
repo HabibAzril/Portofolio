@@ -1,0 +1,137 @@
+/* ========================================================
+   TILTED CARD COMPONENT STYLES (React Bits)
+   ======================================================== */
+
+.tilted-card {
+  position: relative;
+  margin: 0;
+  display: flex;
+  user-select: none;
+  -webkit-user-select: none;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y pinch-zoom;
+  box-sizing: border-box;
+}
+
+.tilted-card[data-active] {
+  z-index: 2;
+}
+
+.tilted-card[data-interactive] {
+  cursor: pointer;
+}
+
+/* Shadow underneath */
+.tilted-card > div:first-of-type {
+  background-color: var(--tc-shadow-color, rgba(0, 0, 0, 0.55));
+  filter: blur(20px);
+  -webkit-filter: blur(20px);
+}
+
+/* 3D Preserving Body */
+.tilted-card [style*="preserve-3d"],
+.tilted-card > div:nth-of-type(2) {
+  transform-style: preserve-3d;
+  -webkit-transform-style: preserve-3d;
+}
+
+/* Faces */
+.tilted-card__face {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--tc-radius, 15px);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-sizing: border-box;
+}
+
+.tilted-card__front {
+  transform: rotateY(0deg);
+}
+
+.tilted-card__back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+}
+
+/* Rim shadow */
+.tilted-card__rim {
+  box-shadow: inset 0 0 0 1px var(--tc-rim-color, rgba(255, 255, 255, 0.08)),
+              inset 0 1px 0 var(--tc-rim-light, rgba(255, 255, 255, 0.12));
+}
+
+.tilted-card:focus-visible .tilted-card__rim {
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.7),
+              inset 0 0 0 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Utility classes used by TiltedCard & TiltedCardLayer */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { inset: 0; }
+.m-0 { margin: 0; }
+.m-auto { margin: auto; }
+.flex { display: flex; }
+.items-center { align-items: center; }
+.justify-content-center, .justify-center { justify-content: center; }
+.select-none { user-select: none; }
+.outline-none { outline: none; }
+.max-h-full { max-height: 100%; }
+.max-w-full { max-width: 100%; }
+.max-w-none { max-width: none; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.block { display: block; }
+.overflow-hidden { overflow: hidden; }
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+.mix-blend-screen { mix-blend-mode: screen; }
+.box-border { box-sizing: border-box; }
+.p-px { padding: 1px; }
+.object-cover { object-fit: cover; }
+.opacity-0 { opacity: 0; }
+
+/* Z-indices */
+.z-\[2\] { z-index: 2; }
+.z-\[3\] { z-index: 3; }
+.z-\[5\] { z-index: 5; }
+.z-\[6\] { z-index: 6; }
+.z-\[7\] { z-index: 7; }
+
+/* Blur & transform utilities */
+.blur-\[20px\] { filter: blur(20px); -webkit-filter: blur(20px); }
+.will-change-\[transform\,opacity\] { will-change: transform, opacity; }
+.\[transform-style\:preserve-3d\] { transform-style: preserve-3d; -webkit-transform-style: preserve-3d; }
+.\[backface-visibility\:hidden\] { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.\[-webkit-backface-visibility\:hidden\] { -webkit-backface-visibility: hidden; }
+.\[transform\:rotateY\(180deg\)\] { transform: rotateY(180deg); -webkit-transform: rotateY(180deg); }
+.rounded-\[var\(--tc-radius\)\] { border-radius: var(--tc-radius, 15px); }
+.rounded-\[inherit\] { border-radius: inherit; }
+
+/* Tooltip Caption */
+.tilted-card figcaption {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  margin-left: 14px;
+  margin-top: 16px;
+  white-space: nowrap;
+  border-radius: 7px;
+  background-color: #ffffff;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #18181b;
+  opacity: 0;
+  box-shadow: 0 0 0 1px rgba(24, 24, 27, 0.08), 0 8px 18px -8px rgba(0, 0, 0, 0.45);
+  transform-origin: 0 0;
+  will-change: transform, opacity;
+  pointer-events: none;
+}

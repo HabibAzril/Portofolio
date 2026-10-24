@@ -23,9 +23,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'About', href: '#about' },
-    { name: 'Works', href: '#projects' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Works', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -61,6 +60,8 @@ export default function Navbar() {
         {/* Brand */}
         <a
           href="#hero"
+          className="cursor-target"
+          data-cursor-label="Azril"
           style={{
             fontFamily: 'var(--font-heading)',
             fontSize: '1.1rem',
@@ -85,7 +86,8 @@ export default function Navbar() {
             <a
               key={link.name}
               href={link.href}
-              className="nav-link"
+              className="nav-link cursor-target"
+              data-cursor-label={link.name}
               style={{
                 fontSize: '0.88rem',
                 fontWeight: 400,
@@ -108,6 +110,8 @@ export default function Navbar() {
         >
           <a
             href="#contact"
+            className="cursor-target"
+            data-cursor-label="Contact"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -138,7 +142,8 @@ export default function Navbar() {
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
-          className="mobile-toggle"
+          className="mobile-toggle cursor-target"
+          data-cursor-label="Menu"
           style={{
             display: 'flex',
             alignItems: 'center',
