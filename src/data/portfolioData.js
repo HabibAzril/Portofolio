@@ -24,7 +24,7 @@ export const programmingLanguagesData = [
     name: "PHP",
     subtitle: "Server-side scripting language",
     badge: "Backend",
-    level: "Advanced",
+    level: "",
     color: "#777BB4",
     href: "https://www.php.net"
   },
@@ -32,7 +32,7 @@ export const programmingLanguagesData = [
     name: "HTML",
     subtitle: "Semantic structure & web markup",
     badge: "Markup",
-    level: "Expert",
+    level: "",
     color: "#E34F26",
     href: "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
@@ -40,7 +40,7 @@ export const programmingLanguagesData = [
     name: "CSS",
     subtitle: "Responsive styling & visual layouts",
     badge: "Styling",
-    level: "Expert",
+    level: "",
     color: "#1572B6",
     href: "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
@@ -48,7 +48,7 @@ export const programmingLanguagesData = [
     name: "Java",
     subtitle: "Object-oriented backend logic",
     badge: "OOP & Logic",
-    level: "Intermediate",
+    level: "",
     color: "#EA2D2E",
     href: "https://www.java.com"
   },
@@ -56,7 +56,7 @@ export const programmingLanguagesData = [
     name: "JavaScript",
     subtitle: "Dynamic scripting & web interactivity",
     badge: "Frontend & Core",
-    level: "Advanced",
+    level: "",
     color: "#F7DF1E",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   }
@@ -67,7 +67,7 @@ export const frameworksData = [
     name: "Laravel",
     subtitle: "PHP web application framework",
     badge: "Full-Stack",
-    level: "Advanced",
+    level: "",
     color: "#FF2D20",
     href: "https://laravel.com"
   },
@@ -75,7 +75,7 @@ export const frameworksData = [
     name: "Tailwind CSS",
     subtitle: "Utility-first CSS framework",
     badge: "CSS Framework",
-    level: "Expert",
+    level: "",
     color: "#38BDF8",
     href: "https://tailwindcss.com"
   },
@@ -83,7 +83,7 @@ export const frameworksData = [
     name: "Bootstrap",
     subtitle: "Responsive UI component system",
     badge: "UI Toolkit",
-    level: "Advanced",
+    level: "",
     color: "#7952B3",
     href: "https://getbootstrap.com"
   },
@@ -91,7 +91,7 @@ export const frameworksData = [
     name: "ReactJS",
     subtitle: "Component-driven frontend library",
     badge: "UI Library",
-    level: "Advanced",
+    level: "",
     color: "#61DAFB",
     href: "https://react.dev"
   }
@@ -137,9 +137,9 @@ export const projectsData = [
     id: 3,
     title: "PHP CRUD",
     subtitle: "Data Management • Web Application",
-    description: "Aplikasi pengelolaan data berbasis web dengan PHP native dan database MySQL. Menerapkan operasi CRUD (Create, Read, Update, Delete) secara terstruktur, dilengkapi sistem autentikasi login serta antarmuka tabel interaktif.",
+    description: "Aplikasi pengelolaan data berbasis web dengan PHP dan database MySQL. Menerapkan operasi CRUD (Create, Read, Update, Delete) secara terstruktur, dilengkapi sistem autentikasi login serta antarmuka tabel interaktif.",
     category: "Full-Stack",
-    tags: ["PHP", "MySQL", "HTML5", "CSS3", "JavaScript"],
+    tags: ["PHP", "MySQL", "HTML5", "CSS3"],
     image: "/project/projectImage/phpCrud.jpg",
     demoUrl: null,
     githubUrl: "https://github.com/HabibAzril/PhpCRUD",
@@ -151,10 +151,10 @@ export const projectsData = [
     subtitle: "Gaming Community • Teman Mabar Finder",
     description: "Website komunitas gamer untuk menemukan teman bermain bersama (mabar) dalam game populer seperti Mobile Legends, PUBG, VALORANT, dan FC Mobile. Menghadirkan fitur pencarian pemain, sistem autentikasi, serta navigasi game favorit.",
     category: "Web App",
-    tags: ["JavaScript", "HTML5", "CSS3", "UI/UX"],
+    tags: ["Laravel", "HTML5", "TailwindCSS", "PHP", "MySQL"],
     image: "/project/projectImage/PlayAll.png",
     demoUrl: null,
-    githubUrl: "https://github.com/HabibAzril",
+    githubUrl: "https://github.com/HabibAzril/PlayAll",
     featured: true
   }
 ];

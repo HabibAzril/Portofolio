@@ -29,7 +29,7 @@ export default function Contact() {
     if (!accessKey || accessKey.includes('your_web3forms')) {
       setIsSubmitting(false);
       setErrorMessage(
-        'Kunci akses Web3Forms belum disetel di file .env (VITE_WEB3FORMS_ACCESS_KEY). Silakan dapatkan kunci gratis di web3forms.com atau gunakan tombol kirim langsung via email di bawah.'
+        'gunakan tombol kirim langsung via email di bawah.'
       );
       return;
     }
