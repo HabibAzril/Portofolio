@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Download } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import MicroSlats from './MicroSlats';
 
@@ -190,6 +190,17 @@ export default function Hero({ isReady }) {
             </a>
             <a href="#contact" className="btn-secondary cursor-target" data-cursor-label="Contact">
               Hubungi Saya
+            </a>
+            <a
+              href="/project/CV.%20Azril%20Ahmad%20Rayyan.pdf"
+              download="CV. Azril Ahmad Rayyan.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary cursor-target"
+              data-cursor-label="Download CV"
+            >
+              <Download size={15} />
+              <span>Unduh CV</span>
             </a>
           </motion.div>
         </motion.div>
