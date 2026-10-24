@@ -156,30 +156,6 @@ export default function Skills() {
               gap: '12px',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <div
-                style={{
-                  width: '8px',
-                  height: '8px',
-                  borderRadius: '50%',
-                  backgroundColor: '#22c55e',
-                  boxShadow: '0 0 10px #22c55e',
-                }}
-              />
-              <span
-                style={{
-                  fontSize: '0.78rem',
-                  fontWeight: 600,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
-                  color: 'var(--text-muted)',
-                  fontFamily: 'var(--font-mono)',
-                }}
-              >
-                Interactive Stream • 9 Core Technologies
-              </span>
-            </div>
-
             <div
               style={{
                 display: 'inline-flex',

@@ -1,13 +1,13 @@
 export const personalInfo = {
   name: "Azril",
   fullName: "Azril Ahmad",
-  tagline: "Frontend Developer & QA",
-  bio: "Spesialis dalam merancang antarmuka web yang interaktif, modern, dan didukung animasi mikro yang mulus. Berfokus pada perpaduan estetika visual dan performa tingkat tinggi.",
+  tagline: "Website Developer & QA",
+  bio: "Memiliki Ketertarikan dalam merancang website yang interaktif, modern, dan didukung animasi mikro yang mulus. Berfokus pada perpaduan estetika visual dan performa tingkat tinggi serta QA(Quality Assurance) yang memastikan website berjalan dengan optimal.",
   location: "Indonesia",
   status: "Tersedia untuk Proyek Baru & Kolaborasi",
   socials: {
     github: "https://github.com/HabibAzril",
-    linkedin: "https://linkedin.com",
+    linkedin: "https://www.linkedin.com/in/azril-ahmad-r-4b2697446/",
     instagram: "https://www.instagram.com/zzzri__l/",
     email: "azrilrayyanp@gmail.com" 
   },

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Mail, Copy, Check, Send, MapPin, ArrowUpRight } from 'lucide-react';
+import { Mail, Copy, Check, Send, MapPin, Loader2, AlertCircle } from 'lucide-react';
 import { GithubIcon, LinkedinIcon, InstagramIcon } from './Icons';
 import { personalInfo } from '../data/portfolioData';
 
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(personalInfo.socials.email);
@@ -15,15 +17,69 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
-    }, 4000);
+
+    setIsSubmitting(true);
+    setErrorMessage('');
+
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
+
+    if (!accessKey || accessKey.includes('your_web3forms')) {
+      setIsSubmitting(false);
+      setErrorMessage(
+        'Kunci akses Web3Forms belum disetel di file .env (VITE_WEB3FORMS_ACCESS_KEY). Silakan dapatkan kunci gratis di web3forms.com atau gunakan tombol kirim langsung via email di bawah.'
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Pesan Baru dari ${formData.name} via Portfolio`,
+          from_name: formData.name,
+          replyto: formData.email,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        setErrorMessage(
+          data.message || 'Gagal mengirim pesan. Silakan periksa kembali data atau coba beberapa saat lagi.'
+        );
+      }
+    } catch (err) {
+      console.error('Contact form submission error:', err);
+      setErrorMessage(
+        'Terjadi kendala jaringan saat mengirim pesan. Silakan periksa koneksi internet Anda atau gunakan tombol email di bawah.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const handleMailtoFallback = () => {
+    const subject = encodeURIComponent(`Portfolio Message dari ${formData.name || 'Pengunjung'}`);
+    const body = encodeURIComponent(
+      `Nama: ${formData.name}\nEmail: ${formData.email}\n\nPesan:\n${formData.message}`
+    );
+    window.open(`mailto:${personalInfo.socials.email}?subject=${subject}&body=${body}`, '_blank');
+  };
+
 
   const inputStyles = {
     width: '100%',
@@ -247,44 +303,81 @@ export default function Contact() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.98 }}
                   style={{
-                    padding: '40px 20px',
+                    padding: '40px 24px',
                     textAlign: 'center',
-                    border: '1px solid var(--border-subtle)',
-                    borderRadius: '8px',
+                    border: '1px solid rgba(34, 197, 94, 0.3)',
+                    background: 'rgba(34, 197, 94, 0.04)',
+                    borderRadius: '12px',
                   }}
                 >
                   <div
                     style={{
-                      width: '40px',
-                      height: '40px',
+                      width: '44px',
+                      height: '44px',
                       borderRadius: '50%',
-                      border: '1px solid var(--border-hover)',
+                      border: '1px solid rgba(34, 197, 94, 0.5)',
+                      backgroundColor: 'rgba(34, 197, 94, 0.12)',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
                       margin: '0 auto 16px',
-                      color: 'var(--text-primary)',
+                      color: '#4ade80',
                     }}
                   >
-                    <Check size={18} />
+                    <Check size={20} />
                   </div>
                   <h4
                     style={{
-                      fontSize: '1.05rem',
+                      fontSize: '1.1rem',
                       fontWeight: 600,
                       marginBottom: '8px',
+                      color: '#f8fafc',
                     }}
                   >
-                    Message Sent
+                    Pesan Terkirim!
                   </h4>
                   <p
                     style={{
-                      fontSize: '0.85rem',
+                      fontSize: '0.86rem',
                       color: 'var(--text-secondary)',
+                      lineHeight: 1.6,
+                      marginBottom: '20px',
+                      maxWidth: '360px',
+                      margin: '0 auto 20px',
                     }}
                   >
-                    Terimakasih telah menghubungi saya. Saya akan menghubungi Anda segera.
+                    Terima kasih telah menghubungi saya. Pesan Anda telah terkirim langsung ke email saya (<strong>{personalInfo.socials.email}</strong>) dan akan segera saya balas.
                   </p>
+                  <button
+                    type="button"
+                    onClick={() => setIsSubmitted(false)}
+                    className="cursor-target"
+                    data-cursor-label="Reset"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '8px 18px',
+                      borderRadius: '8px',
+                      background: 'rgba(255, 255, 255, 0.06)',
+                      border: '1px solid var(--border-subtle)',
+                      color: 'var(--text-primary)',
+                      fontSize: '0.82rem',
+                      fontWeight: 500,
+                      cursor: 'pointer',
+                      transition: 'all 0.2s ease',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--border-hover)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = 'var(--border-subtle)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.06)';
+                    }}
+                  >
+                    Kirim Pesan Lain
+                  </button>
                 </motion.div>
               ) : (
                 <form
@@ -390,14 +483,80 @@ export default function Contact() {
                     />
                   </div>
 
+                  {/* Error Notification with Mailto Fallback */}
+                  {errorMessage && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      style={{
+                        padding: '12px 14px',
+                        borderRadius: '8px',
+                        backgroundColor: 'rgba(239, 68, 68, 0.08)',
+                        border: '1px solid rgba(239, 68, 68, 0.28)',
+                        color: '#fca5a5',
+                        fontSize: '0.82rem',
+                        lineHeight: 1.5,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '10px',
+                      }}
+                    >
+                      <div style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                        <AlertCircle size={16} color="#ef4444" style={{ flexShrink: 0, marginTop: '2px' }} />
+                        <span>{errorMessage}</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleMailtoFallback}
+                        className="cursor-target"
+                        data-cursor-label="Email Direct"
+                        style={{
+                          alignSelf: 'flex-start',
+                          background: 'rgba(255, 255, 255, 0.08)',
+                          border: '1px solid rgba(255, 255, 255, 0.16)',
+                          color: '#ffffff',
+                          padding: '6px 14px',
+                          borderRadius: '6px',
+                          fontSize: '0.78rem',
+                          fontWeight: 500,
+                          cursor: 'pointer',
+                          transition: 'all 0.2s ease',
+                        }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)')}
+                      >
+                        Buka di Aplikasi Email / Gmail ↗
+                      </button>
+                    </motion.div>
+                  )}
+
                   <button
                     type="submit"
+                    disabled={isSubmitting}
                     className="btn-primary cursor-target"
-                    data-cursor-label="Send"
-                    style={{ width: '100%', marginTop: '4px' }}
+                    data-cursor-label={isSubmitting ? 'Sending...' : 'Send'}
+                    style={{
+                      width: '100%',
+                      marginTop: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '8px',
+                      opacity: isSubmitting ? 0.75 : 1,
+                      cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                    }}
                   >
-                    <span>Send Message</span>
-                    <Send size={14} />
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 size={15} className="animate-spin" />
+                        <span>Mengirim Pesan...</span>
+                      </>
+                    ) : (
+                      <>
+                        <span>Send Message</span>
+                        <Send size={14} />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
